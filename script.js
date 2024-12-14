@@ -52,3 +52,17 @@ arrow.addEventListener("click", function(){
     arrow.classList.add("active");
     parent.innerHTML += '<div class="bestcellers__books"><div class="test"><img class="books__book" src="images/book1.png" alt="book1"><div class="books__price"><h1 class="price__name">Atomic Ones</h1><p class="price__cost">$ 13.84 USD</p><p class="price__text">Книга содержит как теоретическое содержание, так и решенные вопросы.</p><h3 class="price__type">Печатная версия</h3><button class="price__buy">Заказать</button></div></div><div class="test2"><img class="books__book" src="images/book2.png" alt="book2"><div class="books__price"><h1 class="price__name">The Dark Light</h1><p class="price__cost">$ 13.84 USD</p><p class="price__text">Книга содержит как теоретическое содержание, так и решенные вопросы.</p><h3 class="price__type">Печатная версия</h3><button class="price__buy">Заказать</button></div></div></div>';
 });
+
+
+let links = document.querySelectorAll('.scroll');
+let targetID; //переменная, в которую запишем id целевого элемента
+links.forEach(function (element) {
+    element.addEventListener('click', function (event) {
+        event.preventDefault(); //отключить стандартное поведение
+        targetID = element.getAttribute('href'); //получить id целевого элемента из атрибута href ссылки
+        document.querySelector(targetID).scrollIntoView({ //метод для управления прокруткой
+            behavior: 'smooth', //анимация прокрутки auto - резко, smooth - плавно
+            block: 'start' //вертикальное выравнивание
+        })
+    })
+})
